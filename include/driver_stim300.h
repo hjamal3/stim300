@@ -8,6 +8,7 @@
 #include "../src/serial_driver.h"
 #include <vector>
 #include <assert.h>
+#include <eigen3/Eigen/Geometry> 
 
 class DriverStim300
 {
@@ -26,6 +27,17 @@ public:
   double getGyroX() const;
   double getGyroY() const;
   double getGyroZ() const;
+  /** \brief Return the Accelerometers values
+   */
+  Eigen::Vector3d getAccData();
+
+  /** \brief Return the Gyroscopes values
+   */
+  Eigen::Vector3d getGyroData();
+
+  /** \brief Return the Inclinometers values
+   */
+  Eigen::Vector3d getInclData();
   uint16_t getLatency_us() const;
   double getAverageTemp() const;
   bool isChecksumGood() const;
@@ -57,7 +69,8 @@ private:
   bool no_internal_error_;
 
   uint8_t crc_dummy_bytes_;
-  bool verifyChecksum(std::vector<uint8_t>::const_iterator begin, std::vector<uint8_t>::const_iterator end, uint32_t& expected_CRC);
+  bool verifyChecksum(std::vector<uint8_t>::const_iterator begin, std::vector<uint8_t>::const_iterator end,
+                      uint32_t& expected_CRC);
 };
 
 #endif  // DRIVER_STIM300_DRIVER_STIM300_H
