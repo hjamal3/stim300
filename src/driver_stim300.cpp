@@ -50,6 +50,20 @@ double DriverStim300::getGyroZ() const
 {
   return sensor_data_.gyro[2];
 }
+Eigen::Vector3d DriverStim300::getAccData()
+{
+    return Eigen::Vector3d (this->sensor_data_.acc[0], this->sensor_data_.acc[1], this->sensor_data_.acc[2]);
+}
+
+Eigen::Vector3d DriverStim300::getGyroData()
+{
+    return Eigen::Vector3d (this->sensor_data_.gyro[0], this->sensor_data_.gyro[1], this->sensor_data_.gyro[2]);
+}
+
+Eigen::Vector3d DriverStim300::getInclData()
+{
+    return Eigen::Vector3d (this->sensor_data_.incl[0], this->sensor_data_.incl[1], this->sensor_data_.incl[2]);
+}
 uint16_t DriverStim300::getLatency_us() const
 {
   return sensor_data_.latency_us;
