@@ -29,7 +29,7 @@ int main(int argc, char** argv)
   std::string imu_link;
   std::string imu_output;
   node.param<std::string>("device_path", imu_path, "/dev/ttyUSB0");
-  node.param<std::string>("imu_frame", imu_link, "base_link");
+  node.param<std::string>("imu_frame", imu_link, "imu_link");
   node.param<std::string>("imu_output", imu_output, "/stim300_imu_fb");
 
   std::string device_name;
