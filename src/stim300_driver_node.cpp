@@ -49,9 +49,9 @@ int main(int argc, char** argv)
   varianceOfAcc = sampleRate * pow(stanardDeviationOfAcc, 2);
 
   sensor_msgs::Imu imu_msg_template{};
-  imu_msg_template.orientation_covariance[0] = 0.5;
-  imu_msg_template.orientation_covariance[4] = 0.5;
-  imu_msg_template.orientation_covariance[8] = 0.5;
+  imu_msg_template.orientation_covariance[0] = 0.05;
+  imu_msg_template.orientation_covariance[4] = 0.01;
+  imu_msg_template.orientation_covariance[8] = 0.05;
   imu_msg_template.angular_velocity_covariance[0] = varianceOfGyro;
   imu_msg_template.angular_velocity_covariance[4] = varianceOfGyro;
   imu_msg_template.angular_velocity_covariance[8] = varianceOfGyro;
