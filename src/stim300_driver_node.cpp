@@ -22,16 +22,15 @@ Eigen::Quaterniond estimate_orientation(const Eigen::Vector3d& acc)
 
 int main(int argc, char** argv)
 {
-  std::string node_name = "stim300_driver_node";
-  ros::init(argc, argv, node_name);
+  ros::init(argc, argv, "stim300_driver_node");
 
-  ros::NodeHandle node;
+  ros::NodeHandle node("~");
   std::string imu_path;
   std::string imu_link;
   std::string imu_output;
-  node.param<std::string>((node_name + "/device_path"), imu_path, "/dev/ttyUSB0");
-  node.param<std::string>((node_name + "/imu_frame"), imu_link, "sam/imu_link");
-  node.param<std::string>((node_name + "/imu_output"), imu_output, "stim_imu");
+  node.param<std::string>("device_path", imu_path, "/dev/ttyUSB0");
+  node.param<std::string>("imu_frame", imu_link, "sam/imu_link");
+  node.param<std::string>("imu_output", imu_output, "stim_imu");
 
   std::string device_name;
   double stanardDeivationOfGyro{ 0 };
