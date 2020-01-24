@@ -24,13 +24,13 @@ int main(int argc, char** argv)
 {
   ros::init(argc, argv, "stim300_driver_node");
 
-  ros::NodeHandle node;
+  ros::NodeHandle node("~");
   std::string imu_path;
   std::string imu_link;
   std::string imu_output;
   node.param<std::string>("device_path", imu_path, "/dev/ttyUSB0");
-  node.param<std::string>("imu_frame", imu_link, "imu_link");
-  node.param<std::string>("imu_output", imu_output, "/stim300_imu_fb");
+  node.param<std::string>("imu_frame", imu_link, "sam/imu_link");
+  node.param<std::string>("imu_output", imu_output, "stim_imu");
 
   std::string device_name;
   double stanardDeivationOfGyro{ 0 };
@@ -49,9 +49,9 @@ int main(int argc, char** argv)
   varianceOfAcc = sampleRate * pow(stanardDeviationOfAcc, 2);
 
   sensor_msgs::Imu imu_msg_template{};
-  imu_msg_template.orientation_covariance[0] = 0.5;
-  imu_msg_template.orientation_covariance[4] = 0.5;
-  imu_msg_template.orientation_covariance[8] = 0.5;
+  imu_msg_template.orientation_covariance[0] = 0.05;
+  imu_msg_template.orientation_covariance[4] = 0.01;
+  imu_msg_template.orientation_covariance[8] = 0.05;
   imu_msg_template.angular_velocity_covariance[0] = varianceOfGyro;
   imu_msg_template.angular_velocity_covariance[4] = varianceOfGyro;
   imu_msg_template.angular_velocity_covariance[8] = varianceOfGyro;
