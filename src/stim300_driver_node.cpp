@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 {
   ros::init(argc, argv, "stim300_driver_node");
 
-  ros::NodeHandle node;
+  ros::NodeHandle node("~");
   std::string imu_path;
   std::string imu_link;
   std::string imu_output;
