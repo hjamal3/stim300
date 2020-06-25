@@ -11,14 +11,24 @@ constexpr double averageAllanVarianceOfAcc{ 100 * 2 * 0.0052 };
 
 Eigen::Quaterniond estimate_orientation(const Eigen::Vector3d& acc)
 {
-  double yaw = atan2(-acc[1], acc[0]);
-  double pitch = atan2(acc[2], sqrt(acc[0] * acc[0] + acc[1] * acc[1]));
 
-  Eigen::Quaterniond quat = Eigen::AngleAxisd(0., Eigen::Vector3d::UnitX()) *
-                            Eigen::AngleAxisd(pitch, Eigen::Vector3d::UnitY()) *
-                            Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ());
+	double pitch = atan2(-acc[0], sqrt(acc[1]*acc[1] + acc[2]*acc[2]));
+	//double roll = atan2(acc[1], sqrt(acc[0]*acc[0] + acc[2]*acc[2]));
+	double roll = atan2(acc[1], acc[2]);
+
+	Eigen::Quaterniond quat = Eigen::AngleAxisd(roll, Eigen::Vector3d::UnitX()) *
+                              Eigen::AngleAxisd(pitch, Eigen::Vector3d::UnitY()) *
+                              Eigen::AngleAxisd(0., Eigen::Vector3d::UnitZ());
+  
+  // double yaw = atan2(-acc[1], acc[0]);
+  // double pitch = atan2(acc[2], sqrt(acc[0] * acc[0] + acc[1] * acc[1]));
+//
+  // Eigen::Quaterniond quat = Eigen::AngleAxisd(0., Eigen::Vector3d::UnitX()) *
+                            // Eigen::AngleAxisd(pitch, Eigen::Vector3d::UnitY()) *
+                            // Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ());
   return quat;
 }
+
 
 int main(int argc, char** argv)
 {
