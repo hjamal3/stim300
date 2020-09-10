@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/vortexntnu/stim300.svg?branch=master)](https://travis-ci.com/vortexntnu/stim300)
-
 # STIM 300
+![CI](https://github.com/smarc-project/stim300/workflows/CI/badge.svg?branch=noetic-devel) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 https://www.sensonor.com/products/inertial-measurement-units/stim300/
 
 Run with:
