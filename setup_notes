@@ -1,0 +1,19 @@
+reference https://github.com/vortexntnu/stim300
+and https://www.sensonor.com/media/1132/ts1524r9-datasheet-stim300.pdf
+
+install minicom
+
+sudo minicom -H
+type SERVICEMODE and hit enter
+ctrl a x to leave
+sudo minicom 
+change datagram message to d 3,0 (no termination)
+save configuration data (s, capital Y)
+exit x n
+exit minicom ctrl a x
+
+
+
+go in driver_stim300.h and change datagram_id to RATE_ACC_INCL
+
+

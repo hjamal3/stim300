@@ -14,7 +14,7 @@ class DriverStim300
 {
 public:
   DriverStim300(SerialDriver& serial_driver,
-                stim_300::DatagramIdentifier datagram_id = stim_300::DatagramIdentifier::RATE_ACC_INCL_TEMP_AUX,
+                stim_300::DatagramIdentifier datagram_id = stim_300::DatagramIdentifier::RATE_ACC_INCL,
                 stim_300::GyroOutputUnit gyro_output_unit = stim_300::GyroOutputUnit::ANGULAR_RATE,
                 stim_300::AccOutputUnit acc_output_unit = stim_300::AccOutputUnit::ACCELERATION,
                 stim_300::InclOutputUnit incl_output_unit = stim_300::InclOutputUnit::ACCELERATION,
