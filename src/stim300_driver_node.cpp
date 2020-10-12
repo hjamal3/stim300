@@ -39,8 +39,8 @@ int main(int argc, char** argv)
   std::string imu_link;
   std::string imu_output;
   node.param<std::string>("device_path", imu_path, "/dev/ttyUSB0");
-  node.param<std::string>("imu_frame", imu_link, "sam/imu_link");
-  node.param<std::string>("imu_output", imu_output, "stim_imu");
+  node.param<std::string>("imu_frame", imu_link, "/imu");
+  node.param<std::string>("imu_output", imu_output, "/imu/data");
 
   std::string device_name;
   double stanardDeivationOfGyro{ 0 };
