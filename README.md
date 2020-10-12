@@ -3,6 +3,8 @@
 
 https://www.sensonor.com/products/inertial-measurement-units/stim300/
 
+MoonRanger's IMU is 400 deg/s and 5g. See setup_notes in this folder for details and also commits.
+
 Run with:
 
     rosrun driver_stim300 stim300_driver_node
