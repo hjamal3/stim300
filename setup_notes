@@ -1,8 +1,9 @@
+Tested on Melodic. 
+
 reference https://github.com/vortexntnu/stim300
 and https://www.sensonor.com/media/1132/ts1524r9-datasheet-stim300.pdf
 
 install minicom
-
 sudo minicom -H
 type SERVICEMODE and hit enter
 ctrl a x to leave
