@@ -7,8 +7,10 @@ sudo minicom -H
 type SERVICEMODE and hit enter
 ctrl a x to leave
 sudo minicom 
-change datagram message to d 3,0 (no termination)
-save configuration data (s, capital Y)
+change datagram message to d 3,0
+no termination r 0
+save configuration data (s capital Y)
+change sample rate to 125 samples / s
 exit x n
 exit minicom ctrl a x
 
